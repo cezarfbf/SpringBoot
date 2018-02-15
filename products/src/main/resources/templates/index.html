@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+<meta charset="UTF-8"/>
+<title>Register Products</title>
+
+<base href="/" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
+<script src="./js/app.js"></script>
+<script src="./js/controller/main-controller.js"></script>
+<script src="./js/controller/product-controller.js"></script>
+<script src="./js/controller/image-controller.js"></script>
+
+
+</head>
+
+<body ng-controller="mainController">
+
+TEMPLATE INDEX
+<a href="/products">Products</a>
+
+<div ng-view=""></div>
+
+<div ng-controller="productController">
+
+<input type="text" ng-model="product.name" placeholder = "Name"/> 
+<input type="text" ng-model="product.description" placeholder = "Description"/>
+
+<input type = "button" value = "Save" ng-click="saveProduct()" />
+<input type = "button" value = "Cancel" ng-click="cancelAlter()" />
+
+<br/>
+<div ng-repeat="product in products">{{product.name+' - '+product.description}}
+<button ng-click="deleteProduct(product)">del</button>
+<button ng-click="alterProduct(product)">alt</button>
+</div>
+
+</div>
+
+<br/>
+Path: {{$location.path()}}
+<br/>
+Template URL: {{$route.current.templateUrl}}
+<br/>
+Parameters: {{$routeParams}}
+
+</body>
+
+</html>

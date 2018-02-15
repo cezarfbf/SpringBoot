@@ -1,0 +1,15 @@
+<div>
+
+<input type="text" ng-model="product.name"/> 
+<input type="text" ng-model="product.description"/>
+
+<input type = "button" value = "Save" ng-click="saveProduct()" />
+<input type = "button" value = "Cancel" ng-click="cancelAlter()" />
+
+
+<div ng-repeat="product in products">{{product.name+' - '+product.description}}
+<button ng-click="deleteProduct(product)">del</button>
+<button ng-click="alterProduct(product)">alt</button>
+</div>
+
+</div>
